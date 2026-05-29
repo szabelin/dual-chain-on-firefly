@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: mint-service
+  threads:
+    virtual:
+      enabled: true
+
+server:
+  port: 8090
+
+firefly:
+  base-url: http://localhost:5100
+  namespace: default
+  pool: DualToken
+  signing-key: ""
+  connect-timeout: 5s
+  read-timeout: 15s
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: when-authorized
+
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%X{correlationId:-}] %-5level %logger{36} - %msg%n"
+  level:
+    io.github.szabelin.dualchain: DEBUG

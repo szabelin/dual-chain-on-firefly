@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>tests</title>
+<style>
+  html, body {
+    margin: 0; padding: 0;
+    background: #0a0a0c;
+    color: #e6e6e9;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .frame {
+    max-width: 940px;
+    margin: 24px auto;
+    background: #111114;
+    border: 1px solid #1f1f25;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .titlebar {
+    background: linear-gradient(#1a1a20, #131318);
+    border-bottom: 1px solid #1f1f25;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .red { background: #ff5f56; }
+  .yellow { background: #ffbd2e; }
+  .green { background: #27c93f; }
+  .title { color: #888; font-size: 12px; margin-left: 14px; }
+  .body { padding: 18px 22px 22px; }
+  .ok { color: #6ee7b7; }
+  .label { color: #a78bfa; }
+  .comment { color: #6e6e76; }
+  .rule { color: #2a2a32; }
+  .num { color: #fcd34d; }
+  pre { margin: 0; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="titlebar">
+    <div class="dot red"></div>
+    <div class="dot yellow"></div>
+    <div class="dot green"></div>
+    <div class="title">sergey@localhost · mint-service · ./mvnw verify</div>
+  </div>
+  <div class="body">
+<pre><span class="label">$</span> ./mvnw -B verify
+
+<span class="comment">[INFO] Scanning for projects...</span>
+<span class="comment">[INFO]</span>
+<span class="comment">[INFO] -------------------< io.github.szabelin.dualchain:mint-service ></span>
+<span class="comment">[INFO] Building mint-service 0.1.0</span>
+<span class="comment">[INFO]   from pom.xml</span>
+<span class="comment">[INFO] --------------------------------[ jar ]---------------------------------</span>
+
+<span class="comment">[INFO] --- compiler:3.13.0:compile (default-compile) @ mint-service ---</span>
+<span class="comment">[INFO] Compiling 17 source files with javac [debug parameters release 21]</span>
+
+<span class="comment">[INFO] --- surefire:3.5.2:test (default-test) @ mint-service ---</span>
+<span class="label">[INFO] -------------------------------------------------------</span>
+<span class="label">[INFO]  T E S T S   ·   U N I T</span>
+<span class="label">[INFO] -------------------------------------------------------</span>
+
+<span class="ok">✓</span> EthAddressTest          <span class="num">11</span> tests passed   <span class="comment">0.015 s</span>
+<span class="ok">✓</span> MintServiceTest          <span class="num">5</span> tests passed   <span class="comment">0.012 s</span>
+<span class="ok">✓</span> MintControllerTest       <span class="num">4</span> tests passed   <span class="comment">1.091 s</span>
+<span class="ok">✓</span> BalanceControllerTest    <span class="num">3</span> tests passed   <span class="comment">0.195 s</span>
+<span class="ok">✓</span> FireFlyClientTest        <span class="num">7</span> tests passed   <span class="comment">0.421 s</span>  <span class="comment">(WireMock)</span>
+
+<span class="label">[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0</span>
+
+<span class="comment">[INFO] --- failsafe:3.5.2:integration-test (default) @ mint-service ---</span>
+<span class="label">[INFO] -------------------------------------------------------</span>
+<span class="label">[INFO]  T E S T S   ·   I N T E G R A T I O N</span>
+<span class="label">[INFO] -------------------------------------------------------</span>
+
+<span class="ok">✓</span> MintFlowIT               <span class="num">4</span> tests passed   <span class="comment">2.009 s</span>  <span class="comment">(SpringBootTest + WireMock)</span>
+   <span class="ok">✓</span> mint_endpoint_calls_firefly_and_returns_receipt
+   <span class="ok">✓</span> balance_endpoint_queries_firefly
+   <span class="ok">✓</span> upstream_5xx_returns_502
+   <span class="ok">✓</span> invalid_address_returns_400_without_calling_firefly
+
+<span class="label">[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0</span>
+
+<span class="rule">─────────────────────────────────────────────────────────────────</span>
+<span class="ok">[INFO] BUILD SUCCESS</span>
+<span class="rule">─────────────────────────────────────────────────────────────────</span>
+<span class="comment">[INFO] Total time:  6.281 s</span>
+<span class="comment">[INFO] Total tests: </span><span class="ok"><b>34 passed</b></span><span class="comment"> (30 unit · 4 integration)</span></pre>
+  </div>
+</div>
+</body>
+</html>

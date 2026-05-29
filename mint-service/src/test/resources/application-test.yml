@@ -1,0 +1,16 @@
+spring:
+  threads:
+    virtual:
+      enabled: false
+
+firefly:
+  base-url: http://localhost:18089
+  namespace: default
+  pool: 11111111-2222-3333-4444-555555555555
+  signing-key: 0x0000000000000000000000000000000000000abc
+  connect-timeout: 2s
+  read-timeout: 5s
+
+logging:
+  level:
+    io.github.szabelin.dualchain: INFO

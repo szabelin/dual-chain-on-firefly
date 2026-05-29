@@ -10,3 +10,11 @@
 
 # Claude
 .claude/settings.local.json
+
+# Java / Maven
+mint-service/target/
+*.class
+
+# Helper HTML used to render the screenshots in screenshots/_*.html
+# (kept for reproducibility — comment the next line out to ignore)
+# screenshots/_*.html

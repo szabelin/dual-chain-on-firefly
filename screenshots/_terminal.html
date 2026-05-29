@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>live flow</title>
+<style>
+  html, body {
+    margin: 0; padding: 0;
+    background: #0a0a0c;
+    color: #e6e6e9;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .frame {
+    max-width: 940px;
+    margin: 24px auto;
+    background: #111114;
+    border: 1px solid #1f1f25;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .titlebar {
+    background: linear-gradient(#1a1a20, #131318);
+    border-bottom: 1px solid #1f1f25;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .red { background: #ff5f56; }
+  .yellow { background: #ffbd2e; }
+  .green { background: #27c93f; }
+  .title { color: #888; font-size: 12px; margin-left: 14px; }
+  .body { padding: 18px 22px 22px; }
+  .prompt { color: #6ee7b7; }
+  .arrow { color: #a78bfa; }
+  .comment { color: #6e6e76; }
+  .json-key { color: #a78bfa; }
+  .json-str { color: #6ee7b7; }
+  .json-num { color: #fcd34d; }
+  .http-2xx { color: #6ee7b7; }
+  .rule { color: #2a2a32; }
+  .heading { color: #f5f5f7; font-weight: 600; }
+  pre { margin: 0; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="titlebar">
+    <div class="dot red"></div>
+    <div class="dot yellow"></div>
+    <div class="dot green"></div>
+    <div class="title">sergey@localhost · mint-service · live flow</div>
+  </div>
+  <div class="body">
+<pre><span class="rule">═══════════════════════════════════════════════════════════════</span>
+<span class="heading">  Live mint flow: dual-chain-on-firefly / mint-service</span>
+<span class="rule">═══════════════════════════════════════════════════════════════</span>
+
+<span class="arrow">▸</span> <span class="prompt">curl -X POST</span> http://localhost:8090/api/v1/mints <span class="prompt">\</span>
+    -H "Content-Type: application/json" <span class="prompt">\</span>
+    -d '{"to":"0x81A2C7B04aB3833e1E1a0bcb7ce01f005a68995c","amount":"1000000000000000000"}'
+
+<span class="comment">─── response ─────────────────────────────────────────────────</span>
+{
+  <span class="json-key">"operationId"</span>:   <span class="json-str">"b9626da0-6530-49fb-a2aa-5592fffdb22a"</span>,
+  <span class="json-key">"to"</span>:            <span class="json-str">"0x81a2c7b04ab3833e1e1a0bcb7ce01f005a68995c"</span>,
+  <span class="json-key">"amount"</span>:        <span class="json-str">"1000000000000000000"</span>,
+  <span class="json-key">"transactionId"</span>: <span class="json-str">"c450e833-fda8-4d70-aa52-638041f59e11"</span>,
+  <span class="json-key">"status"</span>:        <span class="json-str">"SUBMITTED"</span>
+}
+<span class="http-2xx">HTTP 202 Accepted</span>
+
+<span class="arrow">▸</span> <span class="comment">waiting 5s for Besu to settle and FireFly to index...</span>
+
+<span class="arrow">▸</span> <span class="prompt">curl</span> http://localhost:8090/api/v1/balances/0x81A2C7B04aB3833e1E1a0bcb7ce01f005a68995c
+
+<span class="comment">─── response ─────────────────────────────────────────────────</span>
+{
+  <span class="json-key">"address"</span>: <span class="json-str">"0x81a2c7b04ab3833e1e1a0bcb7ce01f005a68995c"</span>,
+  <span class="json-key">"balance"</span>: <span class="json-str">"2000000000000000000"</span>   <span class="comment">// 2.0 DUAL (two mints)</span>
+}
+<span class="http-2xx">HTTP 200 OK</span>
+
+<span class="rule">═══════════════════════════════════════════════════════════════</span></pre>
+  </div>
+</div>
+</body>
+</html>
