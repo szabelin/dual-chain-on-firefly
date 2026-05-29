@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>dual-chain-on-firefly — 5 screen reference</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  html, body { background: #0a0a0b; color: #f5f5f7; font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; }
+  .grad-text { background: linear-gradient(90deg, #a78bfa 0%, #6ee7b7 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .grad-bg { background: linear-gradient(90deg, #a78bfa 0%, #6ee7b7 100%); }
+  .grad-bg-soft { background: linear-gradient(135deg, rgba(167,139,250,0.18) 0%, rgba(110,231,183,0.10) 100%); }
+  .priv-card { background: linear-gradient(180deg, #1a1233 0%, #0d0a1f 100%); border: 1px solid #3d2e6e; }
+  .pub-card { background: linear-gradient(180deg, #0d2018 0%, #06120c 100%); border: 1px solid #1f5840; }
+  .priv-pill { background: #3d2e6e; color: #c4b5fd; }
+  .pub-pill { background: #1f5840; color: #6ee7b7; }
+  .confirmed { background: #18382b; color: #6ee7b7; }
+  .pending { background: #3a2e16; color: #fcd34d; }
+  .danger-bg { background: linear-gradient(135deg, #2a0e0e 0%, #1a0707 100%); border: 1px solid #5c2020; }
+  .danger-btn { background: linear-gradient(180deg, #ef4444 0%, #b91c1c 100%); }
+  .mono { font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace; }
+  .screen-label { background: #fff; color: #0a0a0b; padding: 6px 14px; display: inline-block; font-weight: 700; border-radius: 4px; margin: 32px 0 8px; }
+</style>
+</head>
+<body class="px-6 py-6 max-w-[1280px] mx-auto">
+<div class="rounded-2xl border border-gray-800 overflow-hidden">
+  <div class="flex items-center justify-between px-7 py-4 border-b border-gray-800">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded grad-bg"></div>
+      <div class="font-semibold">dual-chain-on-firefly</div>
+      <nav class="flex gap-5 ml-6 text-sm">
+        <a class="text-white font-medium">Dashboard</a><a class="text-gray-400">Tokenize</a><a class="text-gray-400">Transfer</a><a class="text-gray-400">Architecture</a>
+      </nav>
+    </div>
+    <div class="flex items-center gap-3 text-sm">
+      <span class="mono text-gray-300"><span class="inline-block w-2 h-2 rounded-full bg-green-400 mr-1.5"></span>0x7a3f...92Bc</span>
+      <button class="px-3 py-1.5 rounded border border-gray-700">Sign out</button>
+    </div>
+  </div>
+
+  <div class="px-7 py-7">
+    <div class="flex justify-between items-baseline mb-2">
+      <h2 class="text-3xl font-semibold">Welcome back</h2>
+      <div class="text-sm text-gray-400">you@example.com · embedded wallet</div>
+    </div>
+    <p class="text-gray-400 text-sm mb-7">Operate both rails from one screen. Private actions go through FireFly. Public actions sign locally.</p>
+
+    <!-- rail cards -->
+    <div class="grid grid-cols-2 gap-4 mb-7">
+      <div class="priv-card rounded-xl p-6">
+        <div class="flex justify-between items-start mb-5">
+          <div class="text-xs tracking-widest text-gray-400 mono">DUALTOKEN · BESU</div>
+          <span class="priv-pill px-2 py-0.5 rounded text-[10px] tracking-widest">PRIVATE RAIL</span>
+        </div>
+        <div class="flex items-baseline gap-2 mb-1">
+          <span class="text-5xl font-light text-purple-200">2,400</span>
+          <span class="text-gray-400 text-sm">DUAL</span>
+        </div>
+        <div class="text-xs text-gray-500 mb-6">Last mint · 4 seconds ago via FireFly</div>
+        <div class="flex gap-2">
+          <button class="px-5 py-2.5 rounded-lg bg-purple-500 text-white font-medium">Mint 100</button>
+          <button class="px-5 py-2.5 rounded-lg border border-gray-700">Transfer →</button>
+        </div>
+      </div>
+      <div class="pub-card rounded-xl p-6">
+        <div class="flex justify-between items-start mb-5">
+          <div class="text-xs tracking-widest text-gray-400 mono">ETH · ETHEREUM MAINNET</div>
+          <span class="pub-pill px-2 py-0.5 rounded text-[10px] tracking-widest">PUBLIC RAIL</span>
+        </div>
+        <div class="flex items-baseline gap-2 mb-1">
+          <span class="text-5xl font-light text-emerald-200">0.0042</span>
+          <span class="text-gray-400 text-sm">ETH · ≈ $16.16</span>
+        </div>
+        <div class="text-xs text-gray-500 mb-6">Signed in browser · broadcast via Alchemy</div>
+        <div class="flex gap-2">
+          <button class="px-5 py-2.5 rounded-lg bg-red-500 text-white font-medium">Send 0.001 ETH</button>
+          <button class="px-5 py-2.5 rounded-lg border border-gray-700">Receive</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- bottom row: live tx + status -->
+    <div class="grid grid-cols-2 gap-4">
+      <div class="rounded-xl border border-gray-800 p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="font-semibold">Live transactions</h3>
+          <span class="text-xs text-gray-400"><span class="inline-block w-2 h-2 rounded-full bg-green-400 mr-1.5"></span>Streaming · 2 sources</span>
+        </div>
+        <ul class="space-y-3">
+          <li class="border-l-2 border-purple-500 pl-3 py-1">
+            <div class="flex justify-between"><span class="font-medium">Mint · 100 DUAL</span><span class="confirmed px-2 py-0.5 rounded text-[10px] tracking-widest">CONFIRMED</span></div>
+            <div class="text-xs text-gray-500 mono">0xa3f4...1f2a · 4s ago · Besu block 8,402</div>
+          </li>
+          <li class="border-l-2 border-red-500 pl-3 py-1">
+            <div class="flex justify-between"><span class="font-medium">Transfer · 0.001 ETH → 0x892d...4c</span><span class="pending px-2 py-0.5 rounded text-[10px] tracking-widest">PENDING</span></div>
+            <div class="text-xs text-gray-500 mono">0x7e21...9a11 · 32s ago · mainnet · 0.00018 ETH gas</div>
+          </li>
+          <li class="border-l-2 border-purple-500 pl-3 py-1">
+            <div class="flex justify-between"><span class="font-medium">Transfer · 50 DUAL → 0x445a...8e</span><span class="confirmed px-2 py-0.5 rounded text-[10px] tracking-widest">CONFIRMED</span></div>
+            <div class="text-xs text-gray-500 mono">0x4b0a...3d8d · 1m 12s ago · Besu block 8,400</div>
+          </li>
+          <li class="border-l-2 border-purple-500 pl-3 py-1">
+            <div class="flex justify-between"><span class="font-medium">Deploy · DualToken</span><span class="confirmed px-2 py-0.5 rounded text-[10px] tracking-widest">CONFIRMED</span></div>
+            <div class="text-xs text-gray-500 mono">0x91cf...0042 · 3m 04s ago · contract created</div>
+          </li>
+        </ul>
+      </div>
+      <div class="rounded-xl border border-gray-800 p-6">
+        <h3 class="font-semibold mb-4">Backend status</h3>
+        <ul class="space-y-3 text-sm">
+          <li class="flex justify-between"><span>mint-service<br><span class="mono text-xs text-gray-500">localhost:8180</span></span><span class="confirmed px-2 py-0.5 rounded text-[10px] tracking-widest h-fit">UP · 12ms</span></li>
+          <li class="flex justify-between"><span>token-service<br><span class="mono text-xs text-gray-500">localhost:8181</span></span><span class="confirmed px-2 py-0.5 rounded text-[10px] tracking-widest h-fit">UP · 14ms</span></li>
+          <li class="flex justify-between"><span>FireFly<br><span class="mono text-xs text-gray-500">localhost:5100</span></span><span class="confirmed px-2 py-0.5 rounded text-[10px] tracking-widest h-fit">UP · 84ms</span></li>
+          <li class="flex justify-between"><span>Alchemy mainnet<br><span class="mono text-xs text-gray-500">eth-mainnet.g.alchemy.com</span></span><span class="confirmed px-2 py-0.5 rounded text-[10px] tracking-widest h-fit">UP · 41ms</span></li>
+          <li class="flex justify-between"><span>Privy auth<br><span class="mono text-xs text-gray-500">app · clxxx2k4f</span></span><span class="confirmed px-2 py-0.5 rounded text-[10px] tracking-widest h-fit">UP · 61ms</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- KPI strip -->
+    <div class="grid grid-cols-4 gap-4 mt-6">
+      <div class="rounded-lg border border-gray-800 p-4">
+        <div class="text-xs tracking-widest text-purple-300">TX TODAY · PRIVATE</div>
+        <div class="text-3xl font-light mt-1">14</div>
+      </div>
+      <div class="rounded-lg border border-gray-800 p-4">
+        <div class="text-xs tracking-widest text-emerald-300">TX TODAY · PUBLIC</div>
+        <div class="text-3xl font-light mt-1">3</div>
+      </div>
+      <div class="rounded-lg border border-gray-800 p-4">
+        <div class="text-xs tracking-widest text-gray-400">AVG LATENCY</div>
+        <div class="text-3xl font-light mt-1">7.8<span class="text-base text-gray-500">s</span></div>
+      </div>
+      <div class="rounded-lg border border-gray-800 p-4">
+        <div class="text-xs tracking-widest text-gray-400">GAS SPENT · TODAY</div>
+        <div class="text-3xl font-light mt-1">$0.42</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

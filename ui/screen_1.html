@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>dual-chain-on-firefly — 5 screen reference</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  html, body { background: #0a0a0b; color: #f5f5f7; font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; }
+  .grad-text { background: linear-gradient(90deg, #a78bfa 0%, #6ee7b7 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .grad-bg { background: linear-gradient(90deg, #a78bfa 0%, #6ee7b7 100%); }
+  .grad-bg-soft { background: linear-gradient(135deg, rgba(167,139,250,0.18) 0%, rgba(110,231,183,0.10) 100%); }
+  .priv-card { background: linear-gradient(180deg, #1a1233 0%, #0d0a1f 100%); border: 1px solid #3d2e6e; }
+  .pub-card { background: linear-gradient(180deg, #0d2018 0%, #06120c 100%); border: 1px solid #1f5840; }
+  .priv-pill { background: #3d2e6e; color: #c4b5fd; }
+  .pub-pill { background: #1f5840; color: #6ee7b7; }
+  .confirmed { background: #18382b; color: #6ee7b7; }
+  .pending { background: #3a2e16; color: #fcd34d; }
+  .danger-bg { background: linear-gradient(135deg, #2a0e0e 0%, #1a0707 100%); border: 1px solid #5c2020; }
+  .danger-btn { background: linear-gradient(180deg, #ef4444 0%, #b91c1c 100%); }
+  .mono { font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace; }
+  .screen-label { background: #fff; color: #0a0a0b; padding: 6px 14px; display: inline-block; font-weight: 700; border-radius: 4px; margin: 32px 0 8px; }
+</style>
+</head>
+<body class="px-6 py-6 max-w-[1280px] mx-auto">
+<div class="rounded-2xl border border-gray-800 overflow-hidden">
+  <!-- header -->
+  <div class="flex items-center justify-between px-7 py-4 border-b border-gray-800">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded grad-bg"></div>
+      <div class="font-semibold">dual-chain-on-firefly</div>
+      <nav class="flex gap-5 ml-6 text-sm text-gray-400">
+        <a>Markets</a><a>Tokenize</a><a>Transfer</a><a>Architecture</a><a>Docs</a>
+      </nav>
+    </div>
+    <div class="flex items-center gap-3 text-sm">
+      <span class="text-gray-400"><span class="inline-block w-2 h-2 rounded-full bg-green-400 mr-1.5"></span>Mainnet · 18 gwei</span>
+      <button class="px-3 py-1.5 rounded border border-gray-700">Sign in</button>
+      <button class="px-3 py-1.5 rounded grad-bg text-black font-medium">Get started</button>
+    </div>
+  </div>
+  <!-- ticker bar -->
+  <div class="flex gap-8 px-7 py-3 border-b border-gray-800 text-sm mono">
+    <span>ETH <span class="text-green-400">$3,847.22 ▲ 1.4%</span></span>
+    <span class="text-gray-400">USDC <span class="text-white">$1.0001</span></span>
+    <span class="text-gray-400">DUAL <span class="text-amber-300">1,000,000 supply</span></span>
+    <span class="text-gray-400">Besu private <span class="text-white">block 8,402</span></span>
+  </div>
+  <!-- hero -->
+  <div class="py-24 px-7 text-center">
+    <h1 class="text-7xl font-light tracking-tight leading-none">
+      Many chains,<br><span class="grad-text">one flow.</span>
+    </h1>
+    <p class="text-gray-400 mt-8 max-w-xl mx-auto">Mint and transfer tokens on a permissioned Besu chain. Send ETH on Ethereum mainnet. Same wallet, same dashboard, one login.</p>
+    <div class="flex gap-3 justify-center mt-10">
+      <button class="px-6 py-3 rounded-lg grad-bg text-black font-medium">Launch app →</button>
+      <button class="px-6 py-3 rounded-lg border border-gray-700">View architecture</button>
+    </div>
+  </div>
+  <!-- info cards -->
+  <div class="grid grid-cols-2 gap-4 px-7 pb-8">
+    <div class="priv-card rounded-xl p-6">
+      <div class="text-xs tracking-widest text-purple-300 mb-2">● PRIVATE CHAIN</div>
+      <h3 class="text-xl font-semibold mb-2">DualToken on Besu</h3>
+      <p class="text-gray-400 text-sm">Java service calls FireFly's REST gateway. Mint, transfer, audit between known parties.</p>
+    </div>
+    <div class="pub-card rounded-xl p-6">
+      <div class="text-xs tracking-widest text-emerald-300 mb-2">● PUBLIC CHAIN</div>
+      <h3 class="text-xl font-semibold mb-2">ETH on Ethereum mainnet</h3>
+      <p class="text-gray-400 text-sm">Privy embedded wallet signs in browser. Broadcasts via Alchemy. Real ETH, real settlement.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

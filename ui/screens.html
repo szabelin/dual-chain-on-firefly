@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>dual-chain-on-firefly — 5 screen reference</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  html, body { background: #0a0a0b; color: #f5f5f7; font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; }
+  .grad-text { background: linear-gradient(90deg, #a78bfa 0%, #6ee7b7 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .grad-bg { background: linear-gradient(90deg, #a78bfa 0%, #6ee7b7 100%); }
+  .grad-bg-soft { background: linear-gradient(135deg, rgba(167,139,250,0.18) 0%, rgba(110,231,183,0.10) 100%); }
+  .priv-card { background: linear-gradient(180deg, #1a1233 0%, #0d0a1f 100%); border: 1px solid #3d2e6e; }
+  .pub-card { background: linear-gradient(180deg, #0d2018 0%, #06120c 100%); border: 1px solid #1f5840; }
+  .priv-pill { background: #3d2e6e; color: #c4b5fd; }
+  .pub-pill { background: #1f5840; color: #6ee7b7; }
+  .confirmed { background: #18382b; color: #6ee7b7; }
+  .pending { background: #3a2e16; color: #fcd34d; }
+  .danger-bg { background: linear-gradient(135deg, #2a0e0e 0%, #1a0707 100%); border: 1px solid #5c2020; }
+  .danger-btn { background: linear-gradient(180deg, #ef4444 0%, #b91c1c 100%); }
+  .mono { font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace; }
+  .screen-label { background: #fff; color: #0a0a0b; padding: 6px 14px; display: inline-block; font-weight: 700; border-radius: 4px; margin: 32px 0 8px; }
+</style>
+</head>
+<body class="px-8 py-10 max-w-[1280px] mx-auto">
+
+<!-- ============================================================ -->
+<!-- SCREEN 1 — LANDING                                            -->
+<!-- ============================================================ -->
+<div class="screen-label">SCREEN 1 — LANDING</div>
+<p class="text-sm text-gray-400 mb-3">Marketing page. Hero pitch, live tickers, Launch app button, two info cards explaining each rail.</p>
+
+<div class="rounded-2xl border border-gray-800 overflow-hidden">
+  <!-- header -->
+  <div class="flex items-center justify-between px-7 py-4 border-b border-gray-800">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded grad-bg"></div>
+      <div class="font-semibold">dual-chain-on-firefly</div>
+      <nav class="flex gap-5 ml-6 text-sm text-gray-400">
+        <a>Markets</a><a>Tokenize</a><a>Transfer</a><a>Architecture</a><a>Docs</a>
+      </nav>
+    </div>
+    <div class="flex items-center gap-3 text-sm">
+      <span class="text-gray-400"><span class="inline-block w-2 h-2 rounded-full bg-green-400 mr-1.5"></span>Mainnet · 18 gwei</span>
+      <button class="px-3 py-1.5 rounded border border-gray-700">Sign in</button>
+      <button class="px-3 py-1.5 rounded grad-bg text-black font-medium">Get started</button>
+    </div>
+  </div>
+  <!-- ticker bar -->
+  <div class="flex gap-8 px-7 py-3 border-b border-gray-800 text-sm mono">
+    <span>ETH <span class="text-green-400">$3,847.22 ▲ 1.4%</span></span>
+    <span class="text-gray-400">USDC <span class="text-white">$1.0001</span></span>
+    <span class="text-gray-400">DUAL <span class="text-amber-300">1,000,000 supply</span></span>
+    <span class="text-gray-400">Besu private <span class="text-white">block 8,402</span></span>
+  </div>
+  <!-- hero -->
+  <div class="py-24 px-7 text-center">
+    <h1 class="text-7xl font-light tracking-tight leading-none">
+      Many chains,<br><span class="grad-text">one flow.</span>
+    </h1>
+    <p class="text-gray-400 mt-8 max-w-xl mx-auto">Mint and transfer tokens on a permissioned Besu chain. Send ETH on Ethereum mainnet. Same wallet, same dashboard, one login.</p>
+    <div class="flex gap-3 justify-center mt-10">
+      <button class="px-6 py-3 rounded-lg grad-bg text-black font-medium">Launch app →</button>
+      <button class="px-6 py-3 rounded-lg border border-gray-700">View architecture</button>
+    </div>
+  </div>
+  <!-- info cards -->
+  <div class="grid grid-cols-2 gap-4 px-7 pb-8">
+    <div class="priv-card rounded-xl p-6">
+      <div class="text-xs tracking-widest text-purple-300 mb-2">● PRIVATE CHAIN</div>
+      <h3 class="text-xl font-semibold mb-2">DualToken on Besu</h3>
+      <p class="text-gray-400 text-sm">Java service calls FireFly's REST gateway. Mint, transfer, audit between known parties.</p>
+    </div>
+    <div class="pub-card rounded-xl p-6">
+      <div class="text-xs tracking-widest text-emerald-300 mb-2">● PUBLIC CHAIN</div>
+      <h3 class="text-xl font-semibold mb-2">ETH on Ethereum mainnet</h3>
+      <p class="text-gray-400 text-sm">Privy embedded wallet signs in browser. Broadcasts via Alchemy. Real ETH, real settlement.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- SCREEN 2 — LOGIN (Privy modal)                                -->
+<!-- ============================================================ -->
+<div class="screen-label">SCREEN 2 — LOGIN (Privy modal)</div>
+<p class="text-sm text-gray-400 mb-3">Triggered by Launch app / Get started. Email + magic link, OR Google / Passkey / Wallet. "Secured by Privy" footer. Tells the audience: this isn't MetaMask — wallet is created automatically, no seed phrase.</p>
+
+<div class="rounded-2xl border border-gray-800 overflow-hidden">
+  <div class="flex items-center justify-between px-7 py-4 border-b border-gray-800">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded grad-bg"></div>
+      <div class="font-semibold">dual-chain-on-firefly</div>
+      <nav class="flex gap-5 ml-6 text-sm text-gray-400">
+        <a>Markets</a><a>Tokenize</a><a>Transfer</a><a>Architecture</a><a>Docs</a>
+      </nav>
+    </div>
+    <span class="text-sm text-gray-400"><span class="inline-block w-2 h-2 rounded-full bg-green-400 mr-1.5"></span>Mainnet · 18 gwei</span>
+  </div>
+  <div class="flex justify-center py-16">
+    <div class="bg-black rounded-2xl border border-gray-800 w-[440px] p-7">
+      <div class="flex justify-between items-start mb-6">
+        <div class="w-8 h-8 rounded grad-bg"></div>
+        <button class="text-gray-500 text-xl leading-none">×</button>
+      </div>
+      <h2 class="text-2xl font-semibold mb-2">Sign in to dual-chain-on-firefly</h2>
+      <p class="text-gray-400 text-sm mb-6">A wallet will be created for you automatically. No seed phrase, no extension.</p>
+      <label class="text-sm text-gray-400">Email address</label>
+      <div class="mt-2 mb-4 px-4 py-3 rounded-lg border-2 border-purple-500 bg-black mono text-sm">you@example.com</div>
+      <button class="w-full py-3 rounded-lg grad-bg text-black font-medium mb-6">Send magic link →</button>
+      <div class="flex items-center gap-3 my-5 text-xs text-gray-500 tracking-widest">
+        <div class="flex-1 h-px bg-gray-800"></div>
+        <span>OR CONTINUE WITH</span>
+        <div class="flex-1 h-px bg-gray-800"></div>
+      </div>
+      <div class="grid grid-cols-3 gap-2 mb-5">
+        <button class="py-2.5 rounded-lg border border-gray-700 text-sm">Google</button>
+        <button class="py-2.5 rounded-lg border border-gray-700 text-sm">Passkey</button>
+        <button class="py-2.5 rounded-lg border border-gray-700 text-sm">Wallet</button>
+      </div>
+      <div class="rounded-lg bg-emerald-950/40 border border-emerald-900 px-3 py-2 text-xs text-emerald-300">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5"></span>
+        Secured by <b class="text-white">Privy</b> · embedded wallets, MPC-secured
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- SCREEN 3 — DASHBOARD                                          -->
+<!-- ============================================================ -->
+<div class="screen-label">SCREEN 3 — DASHBOARD</div>
+<p class="text-sm text-gray-400 mb-3">Main workhorse. After login. Two rail cards. Live tx feed. Backend status panel. KPI strip.</p>
+
+<div class="rounded-2xl border border-gray-800 overflow-hidden">
+  <div class="flex items-center justify-between px-7 py-4 border-b border-gray-800">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded grad-bg"></div>
+      <div class="font-semibold">dual-chain-on-firefly</div>
+      <nav class="flex gap-5 ml-6 text-sm">
+        <a class="text-white font-medium">Dashboard</a><a class="text-gray-400">Tokenize</a><a class="text-gray-400">Transfer</a><a class="text-gray-400">Architecture</a>
+      </nav>
+    </div>
+    <div class="flex items-center gap-3 text-sm">
+      <span class="mono text-gray-300"><span class="inline-block w-2 h-2 rounded-full bg-green-400 mr-1.5"></span>0x7a3f...92Bc</span>
+      <button class="px-3 py-1.5 rounded border border-gray-700">Sign out</button>
+    </div>
+  </div>
+
+  <div class="px-7 py-7">
+    <div class="flex justify-between items-baseline mb-2">
+      <h2 class="text-3xl font-semibold">Welcome back</h2>
+      <div class="text-sm text-gray-400">you@example.com · embedded wallet</div>
+    </div>
+    <p class="text-gray-400 text-sm mb-7">Operate both rails from one screen. Private actions go through FireFly. Public actions sign locally.</p>
+
+    <!-- rail cards -->
+    <div class="grid grid-cols-2 gap-4 mb-7">
+      <div class="priv-card rounded-xl p-6">
+        <div class="flex justify-between items-start mb-5">
+          <div class="text-xs tracking-widest text-gray-400 mono">DUALTOKEN · BESU</div>
+          <span class="priv-pill px-2 py-0.5 rounded text-[10px] tracking-widest">PRIVATE RAIL</span>
+        </div>
+        <div class="flex items-baseline gap-2 mb-1">
+          <span class="text-5xl font-light text-purple-200">2,400</span>
+          <span class="text-gray-400 text-sm">DUAL</span>
+        </div>
+        <div class="text-xs text-gray-500 mb-6">Last mint · 4 seconds ago via FireFly</div>
+        <div class="flex gap-2">
+          <button class="px-5 py-2.5 rounded-lg bg-purple-500 text-white font-medium">Mint 100</button>
+          <button class="px-5 py-2.5 rounded-lg border border-gray-700">Transfer →</button>
+        </div>
+      </div>
+      <div class="pub-card rounded-xl p-6">
+        <div class="flex justify-between items-start mb-5">
+          <div class="text-xs tracking-widest text-gray-400 mono">ETH · ETHEREUM MAINNET</div>
+          <span class="pub-pill px-2 py-0.5 rounded text-[10px] tracking-widest">PUBLIC RAIL</span>
+        </div>
+        <div class="flex items-baseline gap-2 mb-1">
+          <span class="text-5xl font-light text-emerald-200">0.0042</span>
+          <span class="text-gray-400 text-sm">ETH · ≈ $16.16</span>
+        </div>
+        <div class="text-xs text-gray-500 mb-6">Signed in browser · broadcast via Alchemy</div>
+        <div class="flex gap-2">
+          <button class="px-5 py-2.5 rounded-lg bg-red-500 text-white font-medium">Send 0.001 ETH</button>
+          <button class="px-5 py-2.5 rounded-lg border border-gray-700">Receive</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- bottom row: live tx + status -->
+    <div class="grid grid-cols-2 gap-4">
+      <div class="rounded-xl border border-gray-800 p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="font-semibold">Live transactions</h3>
+          <span class="text-xs text-gray-400"><span class="inline-block w-2 h-2 rounded-full bg-green-400 mr-1.5"></span>Streaming · 2 sources</span>
+        </div>
+        <ul class="space-y-3">
+          <li class="border-l-2 border-purple-500 pl-3 py-1">
+            <div class="flex justify-between"><span class="font-medium">Mint · 100 DUAL</span><span class="confirmed px-2 py-0.5 rounded text-[10px] tracking-widest">CONFIRMED</span></div>
+            <div class="text-xs text-gray-500 mono">0xa3f4...1f2a · 4s ago · Besu block 8,402</div>
+          </li>
+          <li class="border-l-2 border-red-500 pl-3 py-1">
+            <div class="flex justify-between"><span class="font-medium">Transfer · 0.001 ETH → 0x892d...4c</span><span class="pending px-2 py-0.5 rounded text-[10px] tracking-widest">PENDING</span></div>
+            <div class="text-xs text-gray-500 mono">0x7e21...9a11 · 32s ago · mainnet · 0.00018 ETH gas</div>
+          </li>
+          <li class="border-l-2 border-purple-500 pl-3 py-1">
+            <div class="flex justify-between"><span class="font-medium">Transfer · 50 DUAL → 0x445a...8e</span><span class="confirmed px-2 py-0.5 rounded text-[10px] tracking-widest">CONFIRMED</span></div>
+            <div class="text-xs text-gray-500 mono">0x4b0a...3d8d · 1m 12s ago · Besu block 8,400</div>
+          </li>
+          <li class="border-l-2 border-purple-500 pl-3 py-1">
+            <div class="flex justify-between"><span class="font-medium">Deploy · DualToken</span><span class="confirmed px-2 py-0.5 rounded text-[10px] tracking-widest">CONFIRMED</span></div>
+            <div class="text-xs text-gray-500 mono">0x91cf...0042 · 3m 04s ago · contract created</div>
+          </li>
+        </ul>
+      </div>
+      <div class="rounded-xl border border-gray-800 p-6">
+        <h3 class="font-semibold mb-4">Backend status</h3>
+        <ul class="space-y-3 text-sm">
+          <li class="flex justify-between"><span>mint-service<br><span class="mono text-xs text-gray-500">localhost:8180</span></span><span class="confirmed px-2 py-0.5 rounded text-[10px] tracking-widest h-fit">UP · 12ms</span></li>
+          <li class="flex justify-between"><span>token-service<br><span class="mono text-xs text-gray-500">localhost:8181</span></span><span class="confirmed px-2 py-0.5 rounded text-[10px] tracking-widest h-fit">UP · 14ms</span></li>
+          <li class="flex justify-between"><span>FireFly<br><span class="mono text-xs text-gray-500">localhost:5100</span></span><span class="confirmed px-2 py-0.5 rounded text-[10px] tracking-widest h-fit">UP · 84ms</span></li>
+          <li class="flex justify-between"><span>Alchemy mainnet<br><span class="mono text-xs text-gray-500">eth-mainnet.g.alchemy.com</span></span><span class="confirmed px-2 py-0.5 rounded text-[10px] tracking-widest h-fit">UP · 41ms</span></li>
+          <li class="flex justify-between"><span>Privy auth<br><span class="mono text-xs text-gray-500">app · clxxx2k4f</span></span><span class="confirmed px-2 py-0.5 rounded text-[10px] tracking-widest h-fit">UP · 61ms</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- KPI strip -->
+    <div class="grid grid-cols-4 gap-4 mt-6">
+      <div class="rounded-lg border border-gray-800 p-4">
+        <div class="text-xs tracking-widest text-purple-300">TX TODAY · PRIVATE</div>
+        <div class="text-3xl font-light mt-1">14</div>
+      </div>
+      <div class="rounded-lg border border-gray-800 p-4">
+        <div class="text-xs tracking-widest text-emerald-300">TX TODAY · PUBLIC</div>
+        <div class="text-3xl font-light mt-1">3</div>
+      </div>
+      <div class="rounded-lg border border-gray-800 p-4">
+        <div class="text-xs tracking-widest text-gray-400">AVG LATENCY</div>
+        <div class="text-3xl font-light mt-1">7.8<span class="text-base text-gray-500">s</span></div>
+      </div>
+      <div class="rounded-lg border border-gray-800 p-4">
+        <div class="text-xs tracking-widest text-gray-400">GAS SPENT · TODAY</div>
+        <div class="text-3xl font-light mt-1">$0.42</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- SCREEN 4 — SEND TRANSACTION MODAL                             -->
+<!-- ============================================================ -->
+<div class="screen-label">SCREEN 4 — SEND TRANSACTION MODAL</div>
+<p class="text-sm text-gray-400 mb-3">Opens when user clicks "Send 0.001 ETH". Warning bar: real money on mainnet, irreversible. FROM / TO / AMOUNT. Network + gas + total. Cancel + Confirm and sign.</p>
+
+<div class="rounded-2xl border border-gray-800 overflow-hidden">
+  <div class="flex items-center justify-between px-7 py-4 border-b border-gray-800">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded grad-bg"></div>
+      <div class="font-semibold">dual-chain-on-firefly</div>
+      <nav class="flex gap-5 ml-6 text-sm text-gray-400">
+        <a>Dashboard</a><a>Tokenize</a><a>Transfer</a><a>Architecture</a>
+      </nav>
+    </div>
+    <span class="mono text-sm text-gray-300"><span class="inline-block w-2 h-2 rounded-full bg-green-400 mr-1.5"></span>0x7a3f...92Bc</span>
+  </div>
+  <div class="flex justify-center py-12 px-7">
+    <div class="bg-black rounded-2xl border border-gray-800 w-[520px] p-7">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 rounded-lg danger-btn flex items-center justify-center text-white text-lg">↗</div>
+        <div>
+          <div class="text-xs tracking-widest text-red-400 mono">PUBLIC RAIL · MAINNET</div>
+          <h2 class="text-xl font-semibold">Confirm transaction</h2>
+        </div>
+      </div>
+      <div class="danger-bg rounded-lg px-4 py-3 mb-5 text-sm">
+        <span class="text-red-400">●</span>
+        <span class="text-gray-200">This sends real ETH on Ethereum mainnet. The transaction is irreversible.</span>
+      </div>
+      <div class="text-xs tracking-widest text-gray-500 mb-1">FROM</div>
+      <div class="rounded-lg bg-gray-900/50 border border-gray-800 px-4 py-3 mb-4 flex justify-between items-center">
+        <span class="mono text-sm">0x7a3f...92Bc</span>
+        <span class="text-xs text-gray-500">your wallet</span>
+      </div>
+      <div class="text-xs tracking-widest text-gray-500 mb-1">TO</div>
+      <div class="rounded-lg bg-gray-900/50 border border-gray-800 px-4 py-3 mb-4 mono text-sm break-all">0x892d4f8b7c3a1e0d5f6c9b8a7e4d2c1b0a9f8e7d4c</div>
+      <div class="text-xs tracking-widest text-gray-500 mb-1">AMOUNT</div>
+      <div class="rounded-lg bg-gray-900/50 border border-gray-800 px-4 py-3 mb-5 flex justify-between items-baseline">
+        <span><span class="text-3xl font-light text-red-200">0.001</span> <span class="text-gray-400 text-sm">ETH</span></span>
+        <span class="text-gray-500 text-sm">≈ $3.85</span>
+      </div>
+      <div class="rounded-lg bg-gray-900/30 border border-gray-800 p-4 mb-6 text-sm">
+        <div class="flex justify-between text-gray-400 mb-2"><span>Network</span><span class="text-white">Ethereum mainnet</span></div>
+        <div class="flex justify-between text-gray-400 mb-2"><span>Estimated gas</span><span class="text-white mono">0.000189 ETH · ≈ $0.73</span></div>
+        <div class="border-t border-gray-800 pt-2 mt-2 flex justify-between"><span class="font-medium">Total</span><span class="font-medium mono">0.001189 ETH · ≈ $4.58</span></div>
+      </div>
+      <div class="flex gap-3">
+        <button class="flex-1 py-3 rounded-lg border border-gray-700">Cancel</button>
+        <button class="flex-1 py-3 rounded-lg danger-btn text-white font-medium">Confirm and sign</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- SCREEN 5 — CONFIRMATION / RECEIPT                             -->
+<!-- ============================================================ -->
+<div class="screen-label">SCREEN 5 — CONFIRMATION / RECEIPT</div>
+<p class="text-sm text-gray-400 mb-3">After Confirm. Big green check + amount sent. Block / time / gas / confirmations. Tx hash + Copy + Etherscan link. Progress timeline. Send another / Back to dashboard.</p>
+
+<div class="rounded-2xl border border-gray-800 overflow-hidden">
+  <div class="flex items-center justify-between px-7 py-4 border-b border-gray-800">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded grad-bg"></div>
+      <div class="font-semibold">dual-chain-on-firefly</div>
+      <nav class="flex gap-5 ml-6 text-sm">
+        <a class="text-white font-medium">Dashboard</a><a class="text-gray-400">Tokenize</a><a class="text-gray-400">Transfer</a><a class="text-gray-400">Architecture</a>
+      </nav>
+    </div>
+    <span class="mono text-sm text-gray-300"><span class="inline-block w-2 h-2 rounded-full bg-green-400 mr-1.5"></span>0x7a3f...92Bc</span>
+  </div>
+  <div class="px-7 py-8 space-y-4">
+    <div class="rounded-2xl pub-card p-7">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-14 h-14 rounded-xl bg-emerald-500 flex items-center justify-center text-2xl text-black">✓</div>
+        <div>
+          <div class="text-xs tracking-widest text-emerald-300 mono">TRANSACTION CONFIRMED</div>
+          <h2 class="text-2xl font-semibold">0.001 ETH sent on mainnet</h2>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-5 border-t border-emerald-900/50 pt-5">
+        <div><div class="text-xs tracking-widest text-gray-400 mb-1">BLOCK</div><div class="text-2xl font-light mono">23,841,907</div></div>
+        <div><div class="text-xs tracking-widest text-gray-400 mb-1">CONFIRMATION TIME</div><div class="text-2xl font-light">11.4 seconds</div></div>
+        <div><div class="text-xs tracking-widest text-gray-400 mb-1">GAS USED</div><div class="text-2xl font-light mono">21,000 · 0.000189 ETH</div></div>
+        <div><div class="text-xs tracking-widest text-gray-400 mb-1">CONFIRMATIONS</div><div class="text-2xl font-light">1 of 12</div></div>
+      </div>
+    </div>
+    <div class="rounded-2xl border border-gray-800 p-6 flex items-center gap-4">
+      <div class="flex-1">
+        <div class="text-xs tracking-widest text-gray-400 mb-2">TRANSACTION HASH</div>
+        <div class="mono text-sm break-all">0x7e2189af3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e11</div>
+      </div>
+      <button class="px-3 py-2 rounded-lg border border-gray-700 text-sm">Copy</button>
+      <button class="px-3 py-2 rounded-lg confirmed text-sm">View on Etherscan ↗</button>
+    </div>
+    <div class="rounded-2xl border border-gray-800 p-6">
+      <div class="flex items-center gap-4 mb-3">
+        <span class="flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-emerald-500 text-black text-xs flex items-center justify-center">✓</span><span class="text-sm">Signed</span></span>
+        <span class="flex-1 h-px bg-emerald-700"></span>
+        <span class="flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-emerald-500 text-black text-xs flex items-center justify-center">✓</span><span class="text-sm">Broadcast</span></span>
+        <span class="flex-1 h-px bg-emerald-700"></span>
+        <span class="flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-emerald-500 text-black text-xs flex items-center justify-center">✓</span><span class="text-sm">Mined</span></span>
+        <span class="flex-1 h-px bg-gray-700"></span>
+        <span class="flex items-center gap-2"><span class="w-6 h-6 rounded-full border border-gray-600 text-xs flex items-center justify-center text-gray-400">12</span><span class="text-sm text-gray-400">Finalizing</span></span>
+      </div>
+      <p class="text-xs text-gray-500">Waiting for 11 more confirmations to reach finality. Funds are spendable now.</p>
+    </div>
+    <div class="flex gap-3 justify-end">
+      <button class="px-5 py-2.5 rounded-lg border border-gray-700">Send another</button>
+      <button class="px-5 py-2.5 rounded-lg grad-bg text-black font-medium">Back to dashboard →</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>dual-chain-on-firefly — 5 screen reference</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  html, body { background: #0a0a0b; color: #f5f5f7; font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; }
+  .grad-text { background: linear-gradient(90deg, #a78bfa 0%, #6ee7b7 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .grad-bg { background: linear-gradient(90deg, #a78bfa 0%, #6ee7b7 100%); }
+  .grad-bg-soft { background: linear-gradient(135deg, rgba(167,139,250,0.18) 0%, rgba(110,231,183,0.10) 100%); }
+  .priv-card { background: linear-gradient(180deg, #1a1233 0%, #0d0a1f 100%); border: 1px solid #3d2e6e; }
+  .pub-card { background: linear-gradient(180deg, #0d2018 0%, #06120c 100%); border: 1px solid #1f5840; }
+  .priv-pill { background: #3d2e6e; color: #c4b5fd; }
+  .pub-pill { background: #1f5840; color: #6ee7b7; }
+  .confirmed { background: #18382b; color: #6ee7b7; }
+  .pending { background: #3a2e16; color: #fcd34d; }
+  .danger-bg { background: linear-gradient(135deg, #2a0e0e 0%, #1a0707 100%); border: 1px solid #5c2020; }
+  .danger-btn { background: linear-gradient(180deg, #ef4444 0%, #b91c1c 100%); }
+  .mono { font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace; }
+  .screen-label { background: #fff; color: #0a0a0b; padding: 6px 14px; display: inline-block; font-weight: 700; border-radius: 4px; margin: 32px 0 8px; }
+</style>
+</head>
+<body class="px-6 py-6 max-w-[1280px] mx-auto">
+<div class="rounded-2xl border border-gray-800 overflow-hidden">
+  <div class="flex items-center justify-between px-7 py-4 border-b border-gray-800">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded grad-bg"></div>
+      <div class="font-semibold">dual-chain-on-firefly</div>
+      <nav class="flex gap-5 ml-6 text-sm text-gray-400">
+        <a>Markets</a><a>Tokenize</a><a>Transfer</a><a>Architecture</a><a>Docs</a>
+      </nav>
+    </div>
+    <span class="text-sm text-gray-400"><span class="inline-block w-2 h-2 rounded-full bg-green-400 mr-1.5"></span>Mainnet · 18 gwei</span>
+  </div>
+  <div class="flex justify-center py-16">
+    <div class="bg-black rounded-2xl border border-gray-800 w-[440px] p-7">
+      <div class="flex justify-between items-start mb-6">
+        <div class="w-8 h-8 rounded grad-bg"></div>
+        <button class="text-gray-500 text-xl leading-none">×</button>
+      </div>
+      <h2 class="text-2xl font-semibold mb-2">Sign in to dual-chain-on-firefly</h2>
+      <p class="text-gray-400 text-sm mb-6">A wallet will be created for you automatically. No seed phrase, no extension.</p>
+      <label class="text-sm text-gray-400">Email address</label>
+      <div class="mt-2 mb-4 px-4 py-3 rounded-lg border-2 border-purple-500 bg-black mono text-sm">you@example.com</div>
+      <button class="w-full py-3 rounded-lg grad-bg text-black font-medium mb-6">Send magic link →</button>
+      <div class="flex items-center gap-3 my-5 text-xs text-gray-500 tracking-widest">
+        <div class="flex-1 h-px bg-gray-800"></div>
+        <span>OR CONTINUE WITH</span>
+        <div class="flex-1 h-px bg-gray-800"></div>
+      </div>
+      <div class="grid grid-cols-3 gap-2 mb-5">
+        <button class="py-2.5 rounded-lg border border-gray-700 text-sm">Google</button>
+        <button class="py-2.5 rounded-lg border border-gray-700 text-sm">Passkey</button>
+        <button class="py-2.5 rounded-lg border border-gray-700 text-sm">Wallet</button>
+      </div>
+      <div class="rounded-lg bg-emerald-950/40 border border-emerald-900 px-3 py-2 text-xs text-emerald-300">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5"></span>
+        Secured by <b class="text-white">Privy</b> · embedded wallets, MPC-secured
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

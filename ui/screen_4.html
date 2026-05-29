@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>dual-chain-on-firefly — 5 screen reference</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  html, body { background: #0a0a0b; color: #f5f5f7; font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; }
+  .grad-text { background: linear-gradient(90deg, #a78bfa 0%, #6ee7b7 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .grad-bg { background: linear-gradient(90deg, #a78bfa 0%, #6ee7b7 100%); }
+  .grad-bg-soft { background: linear-gradient(135deg, rgba(167,139,250,0.18) 0%, rgba(110,231,183,0.10) 100%); }
+  .priv-card { background: linear-gradient(180deg, #1a1233 0%, #0d0a1f 100%); border: 1px solid #3d2e6e; }
+  .pub-card { background: linear-gradient(180deg, #0d2018 0%, #06120c 100%); border: 1px solid #1f5840; }
+  .priv-pill { background: #3d2e6e; color: #c4b5fd; }
+  .pub-pill { background: #1f5840; color: #6ee7b7; }
+  .confirmed { background: #18382b; color: #6ee7b7; }
+  .pending { background: #3a2e16; color: #fcd34d; }
+  .danger-bg { background: linear-gradient(135deg, #2a0e0e 0%, #1a0707 100%); border: 1px solid #5c2020; }
+  .danger-btn { background: linear-gradient(180deg, #ef4444 0%, #b91c1c 100%); }
+  .mono { font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace; }
+  .screen-label { background: #fff; color: #0a0a0b; padding: 6px 14px; display: inline-block; font-weight: 700; border-radius: 4px; margin: 32px 0 8px; }
+</style>
+</head>
+<body class="px-6 py-6 max-w-[1280px] mx-auto">
+<div class="rounded-2xl border border-gray-800 overflow-hidden">
+  <div class="flex items-center justify-between px-7 py-4 border-b border-gray-800">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded grad-bg"></div>
+      <div class="font-semibold">dual-chain-on-firefly</div>
+      <nav class="flex gap-5 ml-6 text-sm text-gray-400">
+        <a>Dashboard</a><a>Tokenize</a><a>Transfer</a><a>Architecture</a>
+      </nav>
+    </div>
+    <span class="mono text-sm text-gray-300"><span class="inline-block w-2 h-2 rounded-full bg-green-400 mr-1.5"></span>0x7a3f...92Bc</span>
+  </div>
+  <div class="flex justify-center py-12 px-7">
+    <div class="bg-black rounded-2xl border border-gray-800 w-[520px] p-7">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 rounded-lg danger-btn flex items-center justify-center text-white text-lg">↗</div>
+        <div>
+          <div class="text-xs tracking-widest text-red-400 mono">PUBLIC RAIL · MAINNET</div>
+          <h2 class="text-xl font-semibold">Confirm transaction</h2>
+        </div>
+      </div>
+      <div class="danger-bg rounded-lg px-4 py-3 mb-5 text-sm">
+        <span class="text-red-400">●</span>
+        <span class="text-gray-200">This sends real ETH on Ethereum mainnet. The transaction is irreversible.</span>
+      </div>
+      <div class="text-xs tracking-widest text-gray-500 mb-1">FROM</div>
+      <div class="rounded-lg bg-gray-900/50 border border-gray-800 px-4 py-3 mb-4 flex justify-between items-center">
+        <span class="mono text-sm">0x7a3f...92Bc</span>
+        <span class="text-xs text-gray-500">your wallet</span>
+      </div>
+      <div class="text-xs tracking-widest text-gray-500 mb-1">TO</div>
+      <div class="rounded-lg bg-gray-900/50 border border-gray-800 px-4 py-3 mb-4 mono text-sm break-all">0x892d4f8b7c3a1e0d5f6c9b8a7e4d2c1b0a9f8e7d4c</div>
+      <div class="text-xs tracking-widest text-gray-500 mb-1">AMOUNT</div>
+      <div class="rounded-lg bg-gray-900/50 border border-gray-800 px-4 py-3 mb-5 flex justify-between items-baseline">
+        <span><span class="text-3xl font-light text-red-200">0.001</span> <span class="text-gray-400 text-sm">ETH</span></span>
+        <span class="text-gray-500 text-sm">≈ $3.85</span>
+      </div>
+      <div class="rounded-lg bg-gray-900/30 border border-gray-800 p-4 mb-6 text-sm">
+        <div class="flex justify-between text-gray-400 mb-2"><span>Network</span><span class="text-white">Ethereum mainnet</span></div>
+        <div class="flex justify-between text-gray-400 mb-2"><span>Estimated gas</span><span class="text-white mono">0.000189 ETH · ≈ $0.73</span></div>
+        <div class="border-t border-gray-800 pt-2 mt-2 flex justify-between"><span class="font-medium">Total</span><span class="font-medium mono">0.001189 ETH · ≈ $4.58</span></div>
+      </div>
+      <div class="flex gap-3">
+        <button class="flex-1 py-3 rounded-lg border border-gray-700">Cancel</button>
+        <button class="flex-1 py-3 rounded-lg danger-btn text-white font-medium">Confirm and sign</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

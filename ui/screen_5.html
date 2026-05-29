@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>dual-chain-on-firefly — 5 screen reference</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  html, body { background: #0a0a0b; color: #f5f5f7; font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; }
+  .grad-text { background: linear-gradient(90deg, #a78bfa 0%, #6ee7b7 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .grad-bg { background: linear-gradient(90deg, #a78bfa 0%, #6ee7b7 100%); }
+  .grad-bg-soft { background: linear-gradient(135deg, rgba(167,139,250,0.18) 0%, rgba(110,231,183,0.10) 100%); }
+  .priv-card { background: linear-gradient(180deg, #1a1233 0%, #0d0a1f 100%); border: 1px solid #3d2e6e; }
+  .pub-card { background: linear-gradient(180deg, #0d2018 0%, #06120c 100%); border: 1px solid #1f5840; }
+  .priv-pill { background: #3d2e6e; color: #c4b5fd; }
+  .pub-pill { background: #1f5840; color: #6ee7b7; }
+  .confirmed { background: #18382b; color: #6ee7b7; }
+  .pending { background: #3a2e16; color: #fcd34d; }
+  .danger-bg { background: linear-gradient(135deg, #2a0e0e 0%, #1a0707 100%); border: 1px solid #5c2020; }
+  .danger-btn { background: linear-gradient(180deg, #ef4444 0%, #b91c1c 100%); }
+  .mono { font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace; }
+  .screen-label { background: #fff; color: #0a0a0b; padding: 6px 14px; display: inline-block; font-weight: 700; border-radius: 4px; margin: 32px 0 8px; }
+</style>
+</head>
+<body class="px-6 py-6 max-w-[1280px] mx-auto">
+<div class="rounded-2xl border border-gray-800 overflow-hidden">
+  <div class="flex items-center justify-between px-7 py-4 border-b border-gray-800">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded grad-bg"></div>
+      <div class="font-semibold">dual-chain-on-firefly</div>
+      <nav class="flex gap-5 ml-6 text-sm">
+        <a class="text-white font-medium">Dashboard</a><a class="text-gray-400">Tokenize</a><a class="text-gray-400">Transfer</a><a class="text-gray-400">Architecture</a>
+      </nav>
+    </div>
+    <span class="mono text-sm text-gray-300"><span class="inline-block w-2 h-2 rounded-full bg-green-400 mr-1.5"></span>0x7a3f...92Bc</span>
+  </div>
+  <div class="px-7 py-8 space-y-4">
+    <div class="rounded-2xl pub-card p-7">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-14 h-14 rounded-xl bg-emerald-500 flex items-center justify-center text-2xl text-black">✓</div>
+        <div>
+          <div class="text-xs tracking-widest text-emerald-300 mono">TRANSACTION CONFIRMED</div>
+          <h2 class="text-2xl font-semibold">0.001 ETH sent on mainnet</h2>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-5 border-t border-emerald-900/50 pt-5">
+        <div><div class="text-xs tracking-widest text-gray-400 mb-1">BLOCK</div><div class="text-2xl font-light mono">23,841,907</div></div>
+        <div><div class="text-xs tracking-widest text-gray-400 mb-1">CONFIRMATION TIME</div><div class="text-2xl font-light">11.4 seconds</div></div>
+        <div><div class="text-xs tracking-widest text-gray-400 mb-1">GAS USED</div><div class="text-2xl font-light mono">21,000 · 0.000189 ETH</div></div>
+        <div><div class="text-xs tracking-widest text-gray-400 mb-1">CONFIRMATIONS</div><div class="text-2xl font-light">1 of 12</div></div>
+      </div>
+    </div>
+    <div class="rounded-2xl border border-gray-800 p-6 flex items-center gap-4">
+      <div class="flex-1">
+        <div class="text-xs tracking-widest text-gray-400 mb-2">TRANSACTION HASH</div>
+        <div class="mono text-sm break-all">0x7e2189af3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e11</div>
+      </div>
+      <button class="px-3 py-2 rounded-lg border border-gray-700 text-sm">Copy</button>
+      <button class="px-3 py-2 rounded-lg confirmed text-sm">View on Etherscan ↗</button>
+    </div>
+    <div class="rounded-2xl border border-gray-800 p-6">
+      <div class="flex items-center gap-4 mb-3">
+        <span class="flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-emerald-500 text-black text-xs flex items-center justify-center">✓</span><span class="text-sm">Signed</span></span>
+        <span class="flex-1 h-px bg-emerald-700"></span>
+        <span class="flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-emerald-500 text-black text-xs flex items-center justify-center">✓</span><span class="text-sm">Broadcast</span></span>
+        <span class="flex-1 h-px bg-emerald-700"></span>
+        <span class="flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-emerald-500 text-black text-xs flex items-center justify-center">✓</span><span class="text-sm">Mined</span></span>
+        <span class="flex-1 h-px bg-gray-700"></span>
+        <span class="flex items-center gap-2"><span class="w-6 h-6 rounded-full border border-gray-600 text-xs flex items-center justify-center text-gray-400">12</span><span class="text-sm text-gray-400">Finalizing</span></span>
+      </div>
+      <p class="text-xs text-gray-500">Waiting for 11 more confirmations to reach finality. Funds are spendable now.</p>
+    </div>
+    <div class="flex gap-3 justify-end">
+      <button class="px-5 py-2.5 rounded-lg border border-gray-700">Send another</button>
+      <button class="px-5 py-2.5 rounded-lg grad-bg text-black font-medium">Back to dashboard →</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

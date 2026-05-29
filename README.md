@@ -7,6 +7,25 @@ A small crypto sandbox: one web app, one wallet, two blockchain rails.
 
 Same UI, same wallet (Privy embedded, email login), two completely different settlement layers. I built it to feel out what public + permissioned chains look like when they live behind a single user experience — and to put real code behind the architecture rather than waving a slide at it.
 
+## What it looks like
+
+Five screens carry the whole user journey: landing → log in → dashboard → confirm a public-chain transaction → see the receipt. Source HTML for each screen lives under [`ui/`](ui/).
+
+**Landing page** — hero pitch with live tickers and two info cards explaining each rail.
+![landing](screenshots/ui-screen-1.png)
+
+**Sign-in (Privy modal)** — email + magic link, or Google/Passkey/Wallet. The "Secured by Privy" footer is the point: no seed phrase, no extension. A wallet is provisioned automatically.
+![login](screenshots/ui-screen-2.png)
+
+**Dashboard** — the workhorse. Two rail cards (private DUAL on Besu, public ETH on mainnet), a live transaction feed streaming from both chains, a backend-status panel, and a KPI strip.
+![dashboard](screenshots/ui-screen-3.png)
+
+**Confirm transaction** — opens when the user sends real ETH. Red warning bar (it's mainnet, it's irreversible), full breakdown of amount + gas + total, two buttons: cancel or sign.
+![confirm](screenshots/ui-screen-4.png)
+
+**Receipt** — block, confirmation time, gas, hash + Etherscan link, and a progress timeline through Signed → Broadcast → Mined → Finalizing.
+![receipt](screenshots/ui-screen-5.png)
+
 ## Architecture
 
 ![architecture](diagrams/architecture.png)
@@ -16,8 +35,9 @@ Same UI, same wallet (Privy embedded, email login), two completely different set
 | Path | What it is |
 |---|---|
 | `mint-service/` | Spring Boot 3.4 (Java 21) service that talks to FireFly's REST gateway. Handles the **private rail** — mint + balance lookups. Real tests, real integration tests. |
+| `ui/` | Self-contained HTML for all five UI screens (Tailwind, no build step — open `screens.html` in a browser to see them all stacked, or `screen_N.html` for one at a time). |
 | `diagrams/` | Source HTML + rendered PNG for the architecture diagram. |
-| `screenshots/` | Captured screenshots of the service and FireFly Explorer running locally. |
+| `screenshots/` | Captured screenshots of the UI, the service running, and the FireFly Explorer. |
 
 The public rail (Privy + Alchemy) lives entirely in the browser — no server code needed for it. The Java service is the interesting backend piece, so that's what this repo focuses on.
 
